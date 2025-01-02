@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فاتورة سـيـدار</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+<body>
+    <div class="form-all">
+        <h1 class="form-header">فاتورة سـيـدار</h1>
+
+        <div class="form-line">
+            <label class="form-label">الاسم</label>
+            <input type="text" class="form-textbox" name="first_name" placeholder="الاسم الأول">
+        </div>
+
+        <div class="form-line">
+            <label class="form-label">التاريخ</label>
+            <input type="text" id="invoice_date" class="form-textbox" name="date" placeholder="dd/mm/yyyy">
+        </div>
+
+        <div class="form-line">
+            <table>
+                <thead>
+                    <tr>
+                        <th>الوصف</th>
+                        <th>السعر</th>
+                        <th>الكمية</th>
+                        <th>الاجمالي</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="item-row">
+                        <td><input type="text" class="form-textbox" name="description[]"></td>
+                        <td><input type="number" class="form-textbox price" name="price[]" step="0.01"></td>
+                        <td><input type="number" class="form-textbox quantity" name="quantity[]" step="1"></td>
+                        <td><input type="number" class="form-textbox total" name="total[]" step="0.01" readonly></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" class="add-row-button" onclick="addRow()">إضافة صف</button>
+            <button type="button" class="remove-row-button" onclick="removeRow()">حذف صف</button>
+        </div>
+
+        <div class="form-line">
+            <label class="form-label">اجمالى الفاتورة</label>
+            <input type="number" id="invoice_total" class="form-textbox" name="invoice_total" readonly>
+        </div>
+
+        <div class="form-line">
+            <label class="form-label">القديم لنا طرفكم</label>
+            <input type="number" id="previous_balance" class="form-textbox" name="previous_balance" step="0.01">
+        </div>
+
+        <div class="form-line">
+            <label class="form-label">المدفوع</label>
+            <input type="number" id="paid_amount" class="form-textbox" name="paid_amount" step="0.01">
+        </div>
+
+        <div class="form-line">
+            <label class="form-label">المتبقى لنا طرفكم</label>
+            <input type="number" id="remaining_balance" class="form-textbox" name="remaining_balance" readonly>
+        </div>
+
+        <div class="form-buttons">
+            <button type="button" class="form-submit-button" onclick="printInvoice()">طباعة الفاتورة</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
